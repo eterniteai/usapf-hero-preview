@@ -46,10 +46,10 @@
   <meta property="og:description" content="Refinishing, installation, repair, full kitchen remodels — every job in-house since 2010. 3,000+ Maryland jobs · 190+ 5★ reviews · MHIC #111360. Get a real online quote in 3 min." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://usaprofloors.com/" />
-  <meta property="og:image" content="https://eterniteai.github.io/usapf-hero-preview/images/cinematic/og-finished.jpg" />
-  <meta property="og:image:secure_url" content="https://eterniteai.github.io/usapf-hero-preview/images/cinematic/og-finished.jpg" />
+  <meta property="og:image" content="https://cdpculwlzwtamyibbkuc.supabase.co/storage/v1/object/public/usaprofloors-images/og-image.jpg" />
+  <meta property="og:image:secure_url" content="https://cdpculwlzwtamyibbkuc.supabase.co/storage/v1/object/public/usaprofloors-images/og-image.jpg" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:alt" content="Finished wide-plank hardwood floor installed by USA Pro Floors" />
+  <meta property="og:image:alt" content="USA Pro Floors LLC — hardwood floor refinishing & installation Severn Maryland" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="USA Pro Floors LLC" />
@@ -57,7 +57,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Hardwood Floor Refinishing & Installation in Severn MD | USA Pro Floors" />
   <meta name="twitter:description" content="Hardwood floor refinishing, installation, sanding & finishing, porcelain tile, marble, carpet & LVP in Severn MD. Serving the DMV since 2010. 190+ 5★. 240-444-0748." />
-  <meta name="twitter:image" content="https://eterniteai.github.io/usapf-hero-preview/images/cinematic/og-finished.jpg" />
+  <meta name="twitter:image" content="https://cdpculwlzwtamyibbkuc.supabase.co/storage/v1/object/public/usaprofloors-images/og-image.jpg" />
 
   <!-- ═══ PERFORMANCE ═══ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -102,7 +102,7 @@
         "email": "client@usaprofloors.com",
         "image": [
           "https://usaprofloors.com/images/og-hero.jpg",
-          "https://eterniteai.github.io/usapf-hero-preview/images/cinematic/og-finished.jpg",
+          "https://cdpculwlzwtamyibbkuc.supabase.co/storage/v1/object/public/usaprofloors-images/og-image.jpg",
           "https://usaprofloors.com/images/bg/hero-living-room-1200w.webp"
         ],
         "logo": "https://usaprofloors.com/images/hero/logo.png",
@@ -1036,7 +1036,7 @@ body.drawer-open { overflow: hidden; }
 <!-- ══ CINEMATIC HERO (preview integration) ══ -->
 <style>
 html,body{overflow-x:clip !important}
-#cineTrack{height:520vh;position:relative}
+#cineTrack{height:340vh;position:relative}
 #cineStage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#070707 url('images/cinematic/install-poster.jpg') center/cover no-repeat}
 #cineVid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 #cineImgFallback{position:absolute;inset:0;display:none;background:url('images/cinematic/room-finished.jpg') center/cover}
@@ -1067,7 +1067,9 @@ html,body{overflow-x:clip !important}
 @keyframes cwheel{0%{opacity:0;top:5px}40%{opacity:1}100%{opacity:0;top:15px}}
 #cinePbar{position:fixed;top:0;left:0;height:3px;width:0;z-index:30;background:linear-gradient(90deg,#c8960c,#f5c842)}
 @media (orientation:portrait){#cineVid{object-position:60% center}}
-@media (max-width:480px){#cineStage .ch{font-size:clamp(1.9rem,8.5vw,2.6rem)}#cineStage .csub{font-size:.98rem}#cineStage .ckicker{font-size:.68rem;letter-spacing:2px}#cineStage .cbtn{padding:14px 22px;font-size:.95rem}#cineStage .cchips{display:none}}
+@media (max-width:480px){#cineTrack{height:300vh}#cineStage .ch{font-size:clamp(1.9rem,8.5vw,2.6rem)}#cineStage .csub{font-size:.98rem}#cineStage .ckicker{font-size:.68rem;letter-spacing:2px}#cineStage .cbtn{padding:14px 22px;font-size:.95rem}#cineStage .cchips{display:none}}
+#cineSkip{position:absolute;right:18px;bottom:24px;z-index:8;font:700 .78rem/1 Inter,system-ui;letter-spacing:1px;color:#fff;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:10px 16px;cursor:pointer;backdrop-filter:blur(6px);transition:opacity .3s}
+#cineSkip:hover{border-color:#f5c842;color:#f5c842}
 @media (prefers-reduced-motion:reduce){#cineTrack{height:100vh}#cineStage .cgrain{display:none}}
 </style>
 </head>
@@ -1199,6 +1201,7 @@ html,body{overflow-x:clip !important}
       <span class="cchip">🏠 <b>500+</b> floors completed</span>
     </div>
     <div class="chint" id="cineHint"><span>Scroll to install</span><span class="cmouse"></span></div>
+    <button id="cineSkip" type="button">SKIP FILM ↓</button>
   </div>
 </div>
 <script>
@@ -1222,6 +1225,8 @@ html,body{overflow-x:clip !important}
   function step(){raf=null;if(!vid.duration)return;var d=target-cur;cur+=d*0.22;
     if(Math.abs(d)>0.004){raf=requestAnimationFrame(step);}else{cur=target;}
     try{vid.currentTime=cur;}catch(e){}}
+  var skip=document.getElementById('cineSkip');
+  if(skip){skip.addEventListener('click',function(){var y=track.getBoundingClientRect().top+window.scrollY+track.offsetHeight-window.innerHeight+2;window.scrollTo({top:y,behavior:'smooth'});});}
   function onScroll(){
     var rect=track.getBoundingClientRect();
     var total=track.offsetHeight-window.innerHeight;
@@ -1235,6 +1240,7 @@ html,body{overflow-x:clip !important}
     ph[3].classList.toggle('on',prog>=0.80);
     chips.style.opacity=(prog>=0.82&&vis)?1:0;
     hint.style.opacity=(prog<0.05)?1:0;
+    if(skip){skip.style.opacity=(prog>0.92)?0:1;skip.style.pointerEvents=(prog>0.92)?'none':'auto';}
     if(vid.duration){target=prog*(vid.duration-0.05);if(!raf)raf=requestAnimationFrame(step);}
   }
   if(reduce){
