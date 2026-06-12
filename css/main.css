@@ -251,20 +251,20 @@ body.drawer-open { overflow: hidden; }
   position: absolute; inset: 0;
   background:
     linear-gradient(to right, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.75) 50%, rgba(10,10,10,0.4) 100%),
-    url('/images/bg/hero-living-room-1200w.webp') center/cover no-repeat;
+    url('../images/bg/hero-living-room-1200w.webp') center/cover no-repeat;
 }
 @media (max-width: 820px) {
   .hero-image {
     background:
       linear-gradient(to right, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.75) 50%, rgba(10,10,10,0.4) 100%),
-      url('/images/bg/hero-living-room-800w.webp') center/cover no-repeat;
+      url('../images/bg/hero-living-room-800w.webp') center/cover no-repeat;
   }
 }
 @media (max-width: 500px) {
   .hero-image {
     background:
       linear-gradient(to right, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.75) 50%, rgba(10,10,10,0.4) 100%),
-      url('/images/bg/hero-living-room-480w.webp') center/cover no-repeat;
+      url('../images/bg/hero-living-room-480w.webp') center/cover no-repeat;
   }
 }
 /* JPEG fallback for legacy browsers that don't support WebP */
@@ -272,7 +272,7 @@ body.drawer-open { overflow: hidden; }
   .hero-image {
     background:
       linear-gradient(to right, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.75) 50%, rgba(10,10,10,0.4) 100%),
-      url('/images/bg/hero-living-room.jpg') center/cover no-repeat !important;
+      url('../images/bg/hero-living-room.jpg') center/cover no-repeat !important;
   }
 }
 .hero-image-fallback {
@@ -527,12 +527,12 @@ h2 {
   position: absolute; inset: 0; width: 100%; height: 100%;
 }
 .ba-before {
-  background: url('/images/bg/ba-before.jpg') center/cover no-repeat;
+  background: url('../images/bg/ba-before.jpg') center/cover no-repeat;
   background-color: #3d2010;
   filter: saturate(0.3) brightness(0.6);
 }
 .ba-after {
-  background: url('/images/bg/ba-after.jpg') center/cover no-repeat;
+  background: url('../images/bg/ba-after.jpg') center/cover no-repeat;
   background-color: #c8a882;
   clip-path: inset(0 50% 0 0);
   transition: clip-path 0s;
@@ -659,12 +659,12 @@ h2 {
 }
 .wi-main {
   width: 80%; height: 80%; top: 0; left: 0;
-  background: url('/images/bg/wi-main.jpg') center/cover;
+  background: url('../images/bg/wi-main.jpg') center/cover;
   background-color: #c8a882;
 }
 .wi-accent {
   width: 55%; height: 55%; bottom: 0; right: 0;
-  background: url('/images/bg/wi-accent.jpg') center/cover;
+  background: url('../images/bg/wi-accent.jpg') center/cover;
   background-color: #8b5e3c;
   border: 4px solid var(--dark);
 }
