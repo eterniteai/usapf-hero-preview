@@ -1046,6 +1046,7 @@ html,body{overflow-x:clip !important}
 @keyframes cgrain{0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-8%)}30%{transform:translate(4%,6%)}50%{transform:translate(-7%,3%)}70%{transform:translate(6%,-4%)}90%{transform:translate(-3%,7%)}}
 #cineStage .cvig{position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(118% 100% at 50% 46%,transparent 58%,rgba(0,0,0,.48) 100%)}
 #cineStage .cveil{position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(180deg,rgba(7,7,7,.55) 0%,rgba(7,7,7,.1) 26%,rgba(7,7,7,0) 45%,rgba(7,7,7,0) 70%,rgba(7,7,7,.5) 100%)}
+#cineFinale{position:absolute;inset:0;z-index:2;background:url('images/cinematic/dc-finale-pool.jpg') center/cover no-repeat;opacity:0;transition:opacity 1.1s cubic-bezier(.4,0,.2,1);pointer-events:none}#cineFinale.on{opacity:1}
 #cineStage .ccopy{position:absolute;inset:0;z-index:6;pointer-events:none}
 #cineStage .cinner{position:relative;max-width:1200px;margin:0 auto;height:100%;padding:0 7vw}
 #cineStage .cphase{position:absolute;left:7vw;right:7vw;top:50%;transform:translateY(calc(-50% + 26px));opacity:0;transition:opacity .5s ease,transform .5s ease}
@@ -1170,7 +1171,8 @@ html,body{overflow-x:clip !important}
 <div id="cinePbar"></div>
 <div id="cineTrack">
   <div id="cineStage">
-    <video id="cineVid" muted playsinline preload="none" poster="images/cinematic/install-poster.jpg"></video>
+    <video id="cineVid" muted playsinline preload="none" poster="images/cinematic/dc-finale-pool.jpg"></video>
+    <div id="cineFinale"></div>
     <div id="cineImgFallback"></div>
     <div class="cgrain"></div><div class="cvig"></div><div class="cveil"></div>
     <div class="ccopy"><div class="cinner">
@@ -1241,7 +1243,7 @@ html,body{overflow-x:clip !important}
     ph[0].classList.toggle('on',prog<0.10);
     ph[1].classList.toggle('on',prog>=0.13&&prog<0.32);
     ph[2].classList.toggle('on',prog>=0.36&&prog<0.72);
-    ph[3].classList.toggle('on',prog>=0.80);
+    ph[3].classList.toggle('on',prog>=0.80);var _f=document.getElementById('cineFinale');if(_f)_f.classList.toggle('on',prog>=0.80);
     chips.style.opacity=(prog>=0.82&&vis)?1:0;
     hint.style.opacity=(prog<0.05)?1:0;
     if(skip){skip.style.opacity=(prog>0.92)?0:1;skip.style.pointerEvents=(prog>0.92)?'none':'auto';}
